@@ -1,3 +1,1 @@
 # ClonePintRest
-
-# Clone PintRest
