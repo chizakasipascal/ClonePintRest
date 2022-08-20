@@ -31,7 +31,8 @@ const Pin = (props: any) => {
 const styles = StyleSheet.create({
 
     pin: {
-        width: '50%',
+        width: '100%',
+        padding: 4
     },
     title: {
         fontSize: 20,
