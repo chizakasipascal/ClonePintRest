@@ -1,21 +1,23 @@
-import {StyleSheet, Image} from 'react-native';
+import {StyleSheet, Image, ScrollView, FlatList} from 'react-native';
+import pins from '../assets/data/pins';
 import Pin from '../components/Pin';
 import {Text, View} from '../components/Themed';
 import {RootTabScreenProps} from '../types';
 
 export default function HomeScreen({navigation}: RootTabScreenProps<'TabOne'>) {
   return (
+
+
     <View style={styles.container}>
-      <Pin
-        title={"Title one"}
-        image={"https://notjustdev-dummy.s3.us-east-2.amazonaws.com/pinterest/0.jpeg"}
+
+      <FlatList
+        data={pins}
+        renderItem={({item}) => <Pin pin={item} />}
+        numColumns={2}
       />
 
-      <Pin
-        title={"Title two"}
-        image={"https://notjustdev-dummy.s3.us-east-2.amazonaws.com/pinterest/1.jpeg"}
-      />
     </View>
+
   );
 }
 
@@ -26,5 +28,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 10,
   },
+
 
 });
