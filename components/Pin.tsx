@@ -23,7 +23,7 @@ const Pin = (props: any) => {
                     <AntDesign name="hearto" size={16} color="black" />
                 </Pressable>
             </View>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title} numberOfLines={2}>{title}</Text>
         </View >
     )
 };
@@ -35,15 +35,17 @@ const styles = StyleSheet.create({
         padding: 4
     },
     title: {
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: 16,
+        fontWeight: '600',
         margin: 5,
+        lineHeight: 22,
+        color: '#181818',
 
     },
     image: {
 
         width: '100%',
-        borderRadius: 25,
+        borderRadius: 15,
         aspectRatio: 1 / 2
     },
     heartBtn: {
