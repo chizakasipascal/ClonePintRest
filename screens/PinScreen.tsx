@@ -6,22 +6,31 @@ import {useEffect, useState} from 'react';
 import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
 import {StatusBar} from 'expo-status-bar';
 import {Ionicons} from '@expo/vector-icons';
+import {useNavigation, useRoute} from '@react-navigation/native';
 const PinScreen = () => {
-    const pin = pins[1];
+
     const [ratio, setRatio] = useState(1);
-    const goBack = () => {console.log("Back screen")};
+    const insets = useSafeAreaInsets();
+    const navigation = useNavigation();
+    const route = useRoute();
+    const pinId = route.params?.id;
+    const pin = pins.find((p) => p.id == pinId);
     useEffect(() => {
-        if (pin.image) {
+        if (pin?.image) {
             Image.getSize(pin.image, (width, height) => setRatio(width / height));
         }
     }, [pin]);
-    const insets = useSafeAreaInsets(); //
+
+    const goBack = () => {navigation.goBack()};
+    if (!pin) {
+        return (<Text>Pin not found</Text>);
+    }
     return (
         <SafeAreaView style={styles.safe}>
             <StatusBar style="light" />
             <View style={styles.root}>
-                <Image source={{uri: pin.image}} style={[styles.image, {aspectRatio: ratio}]} />
-                <Text style={styles.title}>{pin.title}</Text>
+                <Image source={{uri: pin?.image}} style={[styles.image, {aspectRatio: ratio}]} />
+                <Text style={styles.title}>{pin?.title}</Text>
             </View>
             <Pressable onPress={goBack} style={[styles.btnBack, {top: insets.top}]}>
                 <Ionicons name={"chevron-back"} size={35} color={"white"} />

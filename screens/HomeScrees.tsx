@@ -39,11 +39,3 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
-
-
-{/* This Flat list build all itm from assest pins */}
-{/* <FlatList
-        data={pins}
-        renderItem={({item}) => <Pin pin={item} />}
-        numColumns={2}
-      /> */}
