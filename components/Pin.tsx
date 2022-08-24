@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
         margin: 5,
         lineHeight: 22,
         color: '#181818',
-
     },
     image: {
 
