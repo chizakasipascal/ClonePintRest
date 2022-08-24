@@ -8,41 +8,22 @@ export default function HomeScreen({navigation}: RootTabScreenProps<'TabOne'>) {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {/* This Flat list build all itm from assest pins */}
-        {/* <FlatList
-        data={pins}
-        renderItem={({item}) => <Pin pin={item} />}
-        numColumns={2}
-      /> */}
         {/* Fisrt column */}
-        <View style={{backgroundColor: "#94ffa955", flex: 1}}>
-          {/* <Pin pin={pins[0]} />
-          <Pin pin={pins[2]} />
-          <Pin pin={pins[4]} /> */}
-
-          {/* Let loop this object */}
-
-          {pins.filter((item, index) => index % 2 == 0).map(
+        <View style={styles.column}>
+          {pins.filter((_, index) => index % 2 == 0).map(
             (pin) => (
-              <Pin pin={pin} />
+              <Pin pin={pin} key={pin.id} />
             ))}
         </View>
         {/* Second column */}
-        <View style={{backgroundColor: "#cd94ff", flex: 1}}>
-          {/* <Pin pin={pins[1]} />
-          <Pin pin={pins[3]} />
-          <Pin pin={pins[5]} /> */}
-
-          {pins.filter((item, index) => index % 2 == 1).map(
+        <View style={styles.column}>
+          {pins.filter((_, index) => index % 2 != 0).map(
             (pin) => (
-              <Pin pin={pin} />
+              <Pin pin={pin} key={pin.id} />
             ))}
         </View>
       </View>
-
     </ScrollView>
-
-
   );
 }
 
@@ -54,6 +35,7 @@ const styles = StyleSheet.create({
     padding: 10,
     flexDirection: 'row'
   },
-
-
+  column: {
+    flex: 1
+  }
 });
