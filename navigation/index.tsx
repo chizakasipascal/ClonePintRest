@@ -19,6 +19,7 @@ import TabTwoScreen from '../screens/ProfileScreen';
 import {RootStackParamList, RootTabParamList, RootTabScreenProps} from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import PinScreen from '../screens/PinScreen';
+import CreatePin from '../screens/CreatePin';
 
 export default function Navigation({colorScheme}: {colorScheme: ColorSchemeName}) {
   return (
@@ -72,8 +73,8 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Create"
-        component={TabOneScreen}
-        options={{title: 'create', tabBarIcon: ({color}) => <FontAwesome name="plus" size={30} color={color} />}}
+        component={CreatePin}
+        options={{title: 'Create Pin', tabBarIcon: ({color}) => <FontAwesome name="plus" size={30} color={color} />}}
       />
       <BottomTab.Screen
         name="Profile"
