@@ -12,7 +12,7 @@ interface IMasonryList {
     }[];
 }
 
-const MasonryList = ({pins}: IMasonryList) => {
+const MasonryList = ({pin}: IMasonryList) => {
     return (
         <ScrollView>
             <View style={styles.container}>
